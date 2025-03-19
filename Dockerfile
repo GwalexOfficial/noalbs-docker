@@ -1,4 +1,4 @@
-FROM alpine:3.21.2 AS builder
+FROM alpine:3.21.3 AS builder
 
 RUN apk update && apk upgrade && \
     apk add --no-cache cargo
@@ -9,7 +9,7 @@ RUN wget 'https://github.com/NOALBS/nginx-obs-automatic-low-bitrate-switching/re
     cd noalbs/ && \
     cargo run --release
 
-FROM alpine:3.21.2
+FROM alpine:3.21.3
 
 RUN apk update && apk upgrade && \
     apk add --no-cache
